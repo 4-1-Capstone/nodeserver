@@ -5,3 +5,5 @@ const { updatePrompt } = require('../controllers/promptController');
 router.post('/', updatePrompt);
 
 module.exports = router;
+
+////ㄴ
