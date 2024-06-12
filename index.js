@@ -9,7 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const indexRouter = require('./routes/index');
 const updatePromptRouter = require('./routes/updatePrompt');
 const generateImageRouter = require('./routes/generateImage');
+const UserRouter = require('./routes/user');
 
+app.use('/user',UserRouter);
 app.use('/', indexRouter);
 app.use('/update-prompt', updatePromptRouter);
 app.use('/generate-image', generateImageRouter);
