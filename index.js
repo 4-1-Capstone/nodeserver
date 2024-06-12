@@ -10,8 +10,10 @@ const indexRouter = require('./routes/index');
 const updatePromptRouter = require('./routes/updatePrompt');
 const generateImageRouter = require('./routes/generateImage');
 const UserRouter = require('./routes/user');
+const SiteRouter = require('./routes/site');
 
 app.use('/user',UserRouter);
+app.use('site',SiteRouter);
 app.use('/', indexRouter);
 app.use('/update-prompt', updatePromptRouter);
 app.use('/generate-image', generateImageRouter);
