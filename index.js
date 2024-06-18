@@ -11,8 +11,10 @@ const updatePromptRouter = require('./routes/updatePrompt');
 const generateImageRouter = require('./routes/generateImage');
 const UserRouter = require('./routes/user');
 const SiteRouter = require('./routes/site');
+const LikeRouter = require('./routes/like');
 
 app.use('/user',UserRouter);
+app.use('/like',LikeRouter);
 app.use('site',SiteRouter);
 app.use('/', indexRouter);
 app.use('/update-prompt', updatePromptRouter);

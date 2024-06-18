@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const ctypto = require('crypto'); //암호화
 dotenv.config();
-const {StatusCodes} = require('http-status-codes');
-//const { cookie } = require('express-validator');
+const { StatusCodes } = require('http-status-codes');
+
 // 기존 getAllAnimations 함수
 const getAllAnimations = (req, res) => {
     let sql = 'SELECT * FROM Animation';
@@ -57,8 +57,24 @@ const getFilteredSites = (req, res) => {
     });
 };
 
+// site_idx로 태그 조회 함수
+const getTagsBySite = (req, res) => {
+    const site_idx = req.params.site_idx;
+    let sql = 'SELECT tags FROM Tags WHERE site_idx = ?';
+    
+    conn.query(sql, [site_idx], (err, results) => {
+        if (err) {
+            console.log(err);
+            return res.status(StatusCodes.BAD_REQUEST).end(); // BAD REQUEST
+        }
+        
+        res.status(StatusCodes.OK).json(results); // SUCCESS
+    });
+};
+
 module.exports = {
     getAllAnimations,
     getSitesByAnimation,
-    getFilteredSites
+    getFilteredSites,
+    getTagsBySite
 };
