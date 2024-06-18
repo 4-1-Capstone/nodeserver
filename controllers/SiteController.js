@@ -1,8 +1,4 @@
 const conn = require('../mariadb');
-const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
-const ctypto = require('crypto'); //암호화
-dotenv.config();
 const { StatusCodes } = require('http-status-codes');
 
 // 기존 getAllAnimations 함수
